@@ -54,7 +54,8 @@ body{
 .sliderImg{
     height: 350px;
     background-size: cover;
-    
+    z-index: -1;
+    opacity: 70%;
 }
 
 .container{
@@ -64,4 +65,13 @@ body{
     padding-left: 50px;
     padding-bottom: 50px;   
     width: 600px;
+    z-index: 1;
+}
+
+.sliderGomb{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 82;
 }
