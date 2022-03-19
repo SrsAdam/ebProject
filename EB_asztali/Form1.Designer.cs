@@ -235,6 +235,7 @@ namespace EB_asztali
             this.btTorol.TabIndex = 24;
             this.btTorol.Text = "Töröl:";
             this.btTorol.UseVisualStyleBackColor = true;
+            this.btTorol.Click += new System.EventHandler(this.btTorol_Click);
             // 
             // btModos
             // 

@@ -29,7 +29,7 @@ namespace EB_asztali
         {
             //string kapcsolatString = "datasource = localhost; port = 3306; username= root; database=elso;";
             string parancs = "INSERT INTO kutya (`SORSZAM`,`NEV`,`NEME`,`SZUL_DATUM`,`BEKER_DATUM`,`MERET`,`SZORHOSSZ`,`KOR`,`JELLEMZES`,`KEP`,`STATUSZ`,`USERNAME`,`MEGYE`,`NAME`,`WEBLINK`) VALUES " +
-                "(NULL, '" + tbNeve.Text +"' ,'"+cbNeme.Text + "','" + tbSzul.Text + "','" + dateBeker.Value.Date.ToString("yyyyMMdd") + "','" + cbMeret.Text+ "','" + cbSzorhossz.Text + "','" + cbKor.Text + "','" + tbJellemz.Text + "','" + _openfd.FileName.Replace('\\', '/') + "','" +cbStatusz.Text + "','" +tbUser.Text + "','" + tbMenhely.Text + "','" + linkMenhely.Text + "','" + tbMegye.Text + "'); ";
+                "(NULL, '" + tbNeve.Text +"' ,'"+cbNeme.Text + "','" + tbSzul.Text + "','" + dateBeker.Value.Date.ToString("yyyyMMdd") + "','" + cbMeret.Text+ "','" + cbSzorhossz.Text + "','" + cbKor.Text + "','" + tbJellemz.Text + "','" + _openfd.FileName.Replace('\\', '/') + "','" +cbStatusz.Text + "','" +tbUser.Text + "','" + tbMegye.Text + "','" + tbMenhely.Text + "','" + linkMenhely.Text   + "'); ";
 
             MySqlConnection adatbKapcsolat = new MySqlConnection(_connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(parancs, adatbKapcsolat);
@@ -183,8 +183,7 @@ namespace EB_asztali
                         cbStatusz.Text = dr["STATUSZ"].ToString(); 
                     }
                     
-
-                    
+                                        
                 }
                 else
                 {
@@ -196,21 +195,70 @@ namespace EB_asztali
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-        
+                                
     }
 
         private void btModos_Click(object sender, EventArgs e)
         {
-            MySqlConnection adatbKapcsolat = new MySqlConnection(_connectionString);
-            adatbKapcsolat.Open();
-            MySqlCommand cmd = adatbKapcsolat.CreateCommand();
-            MySqlCommand commandDatabase = new MySqlCommand(cmd.CommandText, adatbKapcsolat);
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "UPDATE `kutya` SET (`SORSZAM`,`NEV`,`NEME`,`SZUL_DATUM`,`BEKER_DATUM`,`MERET`,`SZORHOSSZ`,`KOR`,`JELLEMZES`,`KEP`,`STATUSZ`,`USERNAME`,`MEGYE`,`NAME`,`WEBLINK`) VALUES " +
-                "(NULL, '" + tbNeve.Text + "' ,'" + cbNeme.Text + "','" + tbSzul.Text + "','" + dateBeker.Value.Date.ToString("yyyyMMdd") + "','" + cbMeret.Text + "','" + cbSzorhossz.Text + "','" + cbKor.Text + "','" + tbJellemz.Text + "','" + _openfd.FileName.Replace('\\', '/') + "','" + cbStatusz.Text + "','" + tbUser.Text + "','" + tbMenhely.Text + "','" + linkMenhely.Text + "','" + tbMegye.Text + "'); ";
+            string _connectionString = "datasource = localhost; port = 3306; username= root; password=; database=elso;";
+            string parancs = "UPDATE `kutya` SET MERET='" + cbMeret.Text + "' ,STATUSZ= '" + cbStatusz.Text + "'  WHERE SORSZAM='" + tbSorszam.Text + "'";
+             
+            MySqlConnection adatkapcsolat = new MySqlConnection(_connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(parancs, adatkapcsolat);
+            try
+            {
+                adatkapcsolat.Open();
+                commandDatabase.ExecuteNonQuery();
+                MessageBox.Show("Sikeres adatfrissítés");
+                adatkapcsolat.Close();
+                tbNeve.Text = null;
+                cbNeme.Text = null;
+                tbSzul.Text = null;
+                dateBeker.Text = null;
+                cbMeret.Text = null;
+                cbSzorhossz.Text = null;
+                cbKor.Text = null;
+                tbJellemz.Text = null;
+                pictureBox1.Image = null;
+                cbStatusz.Text = null;
+                _openfd.FileName = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+        }
+
+        private void btTorol_Click(object sender, EventArgs e)
+        {
+            string _connectionString = "datasource = localhost; port = 3306; username= root; password=; database=elso;";
+            string parancs = "DELETE FROM `kutya`  WHERE SORSZAM='" + tbSorszam.Text + "'";
+
+            MySqlConnection adatkapcsolat = new MySqlConnection(_connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(parancs, adatkapcsolat);
+            try
+            {
+                adatkapcsolat.Open();
+                commandDatabase.ExecuteNonQuery();
+                MessageBox.Show("Sikeres adattörlés");
+                adatkapcsolat.Close();
+                tbNeve.Text = null;
+                cbNeme.Text = null;
+                tbSzul.Text = null;
+                dateBeker.Text = null;
+                cbMeret.Text = null;
+                cbSzorhossz.Text = null;
+                cbKor.Text = null;
+                tbJellemz.Text = null;
+                pictureBox1.Image = null;
+                cbStatusz.Text = null;
+                _openfd.FileName = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
