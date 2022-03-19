@@ -29,16 +29,33 @@ namespace EB_asztali
         {
             //string kapcsolatString = "datasource = localhost; port = 3306; username= root; database=elso;";
             string parancs = "INSERT INTO kutya (`SORSZAM`,`NEV`,`NEME`,`SZUL_DATUM`,`BEKER_DATUM`,`MERET`,`SZORHOSSZ`,`KOR`,`JELLEMZES`,`KEP`,`STATUSZ`,`USERNAME`,`MEGYE`,`NAME`,`WEBLINK`) VALUES " +
-                "(NULL, '" + tbNeve.Text +"' ,'"+cbNeme.Text + "','" + tbSzul.Text + "','" + dateBeker.Value.Date.ToString("yyyyMMdd") + "','" + cbMeret.Text+ "','" + cbSzorhossz.Text + "','" + cbKor.Text + "','" + tbJellemz.Text + "','" + _openfd.FileName.Replace('\\', '/') + "','" +cbStatusz.Text + "','" +tbUser.Text + "','" + tbMegye.Text + "','" + tbMenhely.Text + "','" + linkMenhely.Text   + "'); ";
+                "(NULL, @nev, @neme ,@szul,@beker,@meret,@szor,@kor,@jel,@kep,@stat, @user, @megye, @menhely, @link); ";
 
             MySqlConnection adatbKapcsolat = new MySqlConnection(_connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(parancs, adatbKapcsolat);
+            commandDatabase.Parameters.Add("@nev", MySqlDbType.VarChar).Value = tbNeve.Text;
+            commandDatabase.Parameters.Add("@neme", MySqlDbType.VarChar).Value = cbNeme.Text;
+            commandDatabase.Parameters.Add("@szul", MySqlDbType.Year).Value = tbSzul.Text;
+            commandDatabase.Parameters.Add("@beker", MySqlDbType.Year).Value = dateBeker.Value.Date.ToString("yyyyMMdd");
+            commandDatabase.Parameters.Add("@meret", MySqlDbType.VarChar).Value = cbMeret.Text;
+            commandDatabase.Parameters.Add("@szor", MySqlDbType.VarChar).Value = cbSzorhossz.Text;
+            commandDatabase.Parameters.Add("@kor", MySqlDbType.VarChar).Value = cbKor.Text;
+            commandDatabase.Parameters.Add("@stat", MySqlDbType.VarChar).Value = cbStatusz.Text;
+            commandDatabase.Parameters.Add("@jel", MySqlDbType.VarChar).Value = tbJellemz.Text;
+            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = _openfd.FileName.Replace('\\', '/');
+            commandDatabase.Parameters.Add("@user", MySqlDbType.VarChar).Value = tbUser.Text;
+            commandDatabase.Parameters.Add("@megye", MySqlDbType.VarChar).Value = tbMegye.Text;
+            commandDatabase.Parameters.Add("@menhely", MySqlDbType.VarChar).Value = tbMenhely.Text;
+            commandDatabase.Parameters.Add("@link", MySqlDbType.VarChar).Value = linkMenhely.Text;
+
+
+
             commandDatabase.CommandTimeout = 60;
 
             try
             {
                 //ha sikeres az adatbevitel és zárja a kapcsolatot, akkor törli a t.boxok tartalmát, addig modosítható
-                // _openfd.FileName = null ez biztosítja, hogy ha nem tölt fel fotót oda nem kerül be a korábbi elérési út
+                // _openfd.FileName = null ez biztosítja, hogy ha nem tölt fel fotót, oda nem kerül be a korábbi elérési út
                 adatbKapcsolat.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 MessageBox.Show("Sikeres adatbevitel!");
@@ -159,7 +176,7 @@ namespace EB_asztali
 
                 if (i == 1)
                 {
-                    //MessageBox.Show("Sikeres bejelentkezés!");
+                    
                     MySqlConnection adatbKap = new MySqlConnection("datasource = localhost; port = 3306; username= root; database=elso;");
                     MySqlCommand cmdb = adatbKap.CreateCommand();
                     cmdb.CommandType = CommandType.Text;
@@ -201,10 +218,21 @@ namespace EB_asztali
         private void btModos_Click(object sender, EventArgs e)
         {
             string _connectionString = "datasource = localhost; port = 3306; username= root; password=; database=elso;";
-            string parancs = "UPDATE `kutya` SET MERET='" + cbMeret.Text + "' ,STATUSZ= '" + cbStatusz.Text + "'  WHERE SORSZAM='" + tbSorszam.Text + "'";
+            string parancs = "UPDATE `kutya` SET NEV=@nev, NEME=@neme, SZUL_DATUM=@szul,  MERET=@meret,SZORHOSSZ=@szor, KOR=@kor, JELLEMZES=@jel,KEP=@kep, STATUSZ=@stat  WHERE SORSZAM=@szam";
              
             MySqlConnection adatkapcsolat = new MySqlConnection(_connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(parancs, adatkapcsolat);
+            commandDatabase.Parameters.Add("@nev", MySqlDbType.VarChar).Value = tbNeve.Text;
+            commandDatabase.Parameters.Add("@neme", MySqlDbType.VarChar).Value = cbNeme.Text;
+            commandDatabase.Parameters.Add("@szul", MySqlDbType.Year).Value = tbSzul.Text; 
+            commandDatabase.Parameters.Add("@szam", MySqlDbType.Int32).Value = tbSorszam.Text;
+            commandDatabase.Parameters.Add("@meret", MySqlDbType.VarChar).Value = cbMeret.Text;
+            commandDatabase.Parameters.Add("@szor", MySqlDbType.VarChar).Value = cbSzorhossz.Text;
+            commandDatabase.Parameters.Add("@kor", MySqlDbType.VarChar).Value = cbKor.Text;
+            commandDatabase.Parameters.Add("@stat", MySqlDbType.VarChar).Value = cbStatusz.Text;
+            commandDatabase.Parameters.Add("@jel", MySqlDbType.VarChar).Value = tbJellemz.Text;
+            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = _openfd.FileName;
+
             try
             {
                 adatkapcsolat.Open();
@@ -233,10 +261,11 @@ namespace EB_asztali
         private void btTorol_Click(object sender, EventArgs e)
         {
             string _connectionString = "datasource = localhost; port = 3306; username= root; password=; database=elso;";
-            string parancs = "DELETE FROM `kutya`  WHERE SORSZAM='" + tbSorszam.Text + "'";
+            string parancs = "DELETE FROM `kutya`  WHERE SORSZAM=@szam";
 
             MySqlConnection adatkapcsolat = new MySqlConnection(_connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(parancs, adatkapcsolat);
+            commandDatabase.Parameters.Add("@szam", MySqlDbType.Int32).Value = tbSorszam.Text;
             try
             {
                 adatkapcsolat.Open();
@@ -260,5 +289,6 @@ namespace EB_asztali
                 MessageBox.Show(ex.Message);
             }
         }
+        
     }
 }
