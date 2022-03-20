@@ -23,12 +23,23 @@
      
 
         <div class="signup">
-            <form>
+            <form method="POST" action="regiFelvitel.php" accept-charset="utf-8">
                 <label for="chk" aria-hidden="true">Regisztráció</label>
-                    <input type="text" name="txt" placeholder="Felhasználónév" required="">
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Jelszó" required="">
-                <button>Regisztrálok</button>
+                    <input type="text" name="NAME" placeholder="Név" required="">
+                    <input type="text" name="USERNAME" placeholder="Felhasználónév" required="">
+                    <input type="email" name="EMAIL" placeholder="Email" required="">
+                    <input type="password" name="PASSWORD" placeholder="Jelszó" required="">
+
+                <p class="menh" >Amennyiben Ön menhelyként regisztrál, kérjük töltse ki az alábbiakat is:</p>
+
+                    <input type="number" name="ADOSZAM" placeholder= "Adószám" />               
+                    <input type="number" name="SZLASZAM" placeholder= "Számlaszám" />                 
+                    <input type="text" name="WEBLINK" placeholder= "Weboldal"/>              
+                    <input type="text" name="MEGYE" placeholder= "Megye" />
+
+
+
+                <button type="submit">Regisztrálok</button>
             </form>
         </div>
 

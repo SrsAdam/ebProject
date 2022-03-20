@@ -23,7 +23,7 @@ if ( isset($v_NAME) && isset($v_USERNAME) && isset($v_EMAIL) && isset($v_PASSWOR
  
  $sikeres = mysqli_stmt_execute($stmt);
 
-print("Hello");	
+print("Sikeres regisztráció!");	
 
 
 ?>

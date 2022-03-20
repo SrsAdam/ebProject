@@ -1,85 +1,82 @@
 /* HTML */
 
-body{
+body {
     background-color: whitesmoke;
 }
 
-
 /* Navbar */
 
-.navbar{   
+.navbar {
     background-color: rgba(230, 225, 225, 0.7);
     font-weight: 500;
     top: 0;
     width: 100%;
     z-index: 1;
-    position: fixed;   
+    position: fixed;
 }
 
-.nav-info{
+.nav-info {
     color: black;
     margin-right: 5px;
     margin-bottom: 2px;
 }
 
-.nav-info:hover{
-    color:lightslategray
+.nav-info:hover {
+    color: lightslategray;
 }
 
-.nav-register{
+.nav-register {
     color: black;
     margin-right: 15px;
     cursor: pointer;
 }
 
-.nav-register:hover{
-    color:lightslategray
+.nav-register:hover {
+    color: lightslategray;
 }
 
 /* Slideshow */
 
-.carousel-item{
+.carousel-item {
     background-color: black;
-    color: white; 
-    position: relative;      
+    color: white;
+    position: relative;
 }
 
-.carousel{
+.carousel {
     margin-left: 120px;
     margin-right: 120px;
-    margin-top: 65px; 
+    margin-top: 65px;
 }
 
-.sliderImg{
+.sliderImg {
     height: 350px;
     background-size: cover;
     z-index: -1;
-    opacity: 70%;    
+    opacity: 70%;
 }
 
-
-.container{
+.container {
     position: absolute;
     left: 0;
     bottom: 0;
     padding-left: 50px;
-    padding-bottom: 50px;   
+    padding-bottom: 50px;
     width: 600px;
     z-index: 1;
 }
 
-.sliderGomb{
-    background-color:white;
+.sliderGomb {
+    background-color: white;
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
     opacity: 82%;
 }
 
-
 /* Kereső motor */
 
-.kereso{
+.kereso {
     background-color: rgb(222, 222, 222);
     border-radius: 10px;
     padding: 10px;
@@ -91,7 +88,7 @@ body{
     box-shadow: 8px 6px 5px rgb(212, 212, 212);
 }
 
-.keresogomb{
+.keresogomb {
     background-color: rgb(247, 247, 247);
     border-radius: 5px;
     font-size: 16px;
@@ -100,7 +97,7 @@ body{
 
 /* Rekordok */
 
-.rekord{
+.rekord {
     background-color: rgb(230, 225, 225);
     width: 80%;
     margin: auto;
@@ -109,6 +106,6 @@ body{
     border-radius: 5px;
 }
 
-.rekord-img{
+.rekord-img {
     padding: 15px;
 }
