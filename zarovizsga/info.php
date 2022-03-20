@@ -117,7 +117,7 @@ include_once 'include/connect.php';
           </thead>
           <tbody>
             <?php
-            $lekerdezes =  mysqli_query($conn, "SELECT NAME, SZLASZAM, WEBLINK, MEGYE FROM regisztracio WHERE MEGYE LIKE '%megye'");
+            $lekerdezes =  mysqli_query($conn, "SELECT DISTINCT NAME, SZLASZAM, WEBLINK, MEGYE FROM regisztracio WHERE MEGYE LIKE '%megye'");
               while ($sortomb = mysqli_fetch_assoc($lekerdezes)) {
               $nev = $sortomb['NAME'];
               $szla = $sortomb['SZLASZAM'];
