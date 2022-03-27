@@ -28,7 +28,8 @@
                     <input type="text" name="NAME" placeholder="Név" required="">
                     <input type="text" name="USERNAME" placeholder="Felhasználónév" required="">
                     <input type="email" name="EMAIL" placeholder="Email" required="">
-                    <input type="password" name="PASSWORD" placeholder="Jelszó" required="">
+                    <input type="password" name="PASSWD" placeholder="Jelszó" required="">
+                    <input type="password" name="PASSWD2" placeholder="Jelszó újra" required="">
 
                 <p class="menh" >Amennyiben Ön menhelyként regisztrál, kérjük töltse ki az alábbiakat is:</p>
 
