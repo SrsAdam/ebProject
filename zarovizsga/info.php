@@ -112,21 +112,21 @@ include_once 'include/connect.php';
         <table class="table table-striped">
           <thead>
             <th>Menhely neve</th>
-            <th>Menhely számlaszáma</th>
             <th>Menhely weboldala</th>
+            <th>Menhely székhelye </th>
           </thead>
           <tbody>
             <?php
-            $lekerdezes =  mysqli_query($conn, "SELECT DISTINCT NAME, SZLASZAM, WEBLINK, MEGYE FROM regisztracio WHERE MEGYE LIKE '%megye'");
+            $lekerdezes =  mysqli_query($conn, "SELECT DISTINCT NAME, MEGYE, WEBLINK  FROM regisztracio WHERE MEGYE LIKE '%megye' ORDER BY MEGYE");
               while ($sortomb = mysqli_fetch_assoc($lekerdezes)) {
               $nev = $sortomb['NAME'];
-              $szla = $sortomb['SZLASZAM'];
               $web = $sortomb['WEBLINK'];
+              $megye = $sortomb['MEGYE'];
               echo "
                     <tr>
                       <td>$nev</td>
-                      <td >$szla</td>
-                      <td>$web</td>
+                      <td >$web</td>
+                      <td>$megye</td>
                     </tr>
                   ";
             }
