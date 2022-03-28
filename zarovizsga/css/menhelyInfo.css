@@ -4,15 +4,14 @@ body{
     background-color: whitesmoke;
 }
 
-
-/* Navbar */
+/*Navbar*/
 
 .navbar{   
     background-color: rgba(230, 225, 225, 0.7);
     font-weight: 500;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     position: fixed;   
 }
 
@@ -53,7 +52,7 @@ body{
 
 .sliderImg{
     height: 350px;
-    background-size: cover;
+    background-size: cover; 
     z-index: -1;
     opacity: 70%;
 }
@@ -73,5 +72,15 @@ body{
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
-    opacity: 82;
+    opacity: 82%;
+}
+
+/*Menhely infók*/
+
+.menhelyInfok{
+    margin: auto;   
+}
+
+.table{
+    width: 60%;
 }

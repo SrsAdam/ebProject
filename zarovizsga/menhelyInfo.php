@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+include_once 'include/connect.php';
+?>
 <html lang="hu">
   <head>
     
@@ -8,7 +11,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/menu.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/menhelyInfo.css">
@@ -61,7 +63,7 @@
           <div class="container">
             <h1>Írás</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
-            <a href="#" class="btn sliderGomb">Katt ide</a>
+            <a href="#" class="btn btn-lg btn-primary">Katt ide</a>
           </div>
           <img src="./img/proba.jpg" class="d-block w-100 sliderImg" alt="...">
         </div>
@@ -70,7 +72,7 @@
           <div class="container">
             <h1>Írás</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
-            <a href="#" class="btn sliderGomb">Katt ide</a>
+            <a href="#" class="btn btn-lg btn-primary">Katt ide</a>
           </div>
           <img src="./img/proba.jpg" class="d-block w-100 sliderImg" alt="...">
         </div>
@@ -79,7 +81,7 @@
           <div class="container">
             <h1>Írás</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
-            <a href="#" class="btn sliderGomb">Katt ide</a>
+            <a href="#" class="btn btn-lg btn-primary">Katt ide</a>
           </div>
           <img src="./img/proba.jpg" class="d-block w-100 sliderImg" alt="...">
         </div>
@@ -96,14 +98,40 @@
       </button>
     </div>
 
+    <!-- menhely infok-->
 
-    <!-- Menhelyek -->
+    <div class="menhelyInfok">
+        <h3>Menhely információk</h3>
+            <table class="table table-striped">
+                <thead>
+                  <th>Menhely neve</th>
+                  <th>Menhely számlaszáma</th>
+                  <th>Menhely weboldala</th>
+                </thead>
+            <tbody>
 
+            <?php
 
+            $lekerdezes =  mysqli_query($conn, "SELECT DISTINCT NAME, SZLASZAM, WEBLINK, MEGYE FROM regisztracio WHERE MEGYE LIKE '%megye'");
+              while ($sortomb = mysqli_fetch_assoc($lekerdezes)) {
+              $nev = $sortomb['NAME'];
+              $szla = $sortomb['SZLASZAM'];
+              $web = $sortomb['WEBLINK'];
+              echo "
+                    <tr>
+                      <td>$nev</td>
+                      <td >$szla</td>
+                      <td>$web</td>
+                    </tr>
+                  ";
+            }
+            ?>
 
+          </tbody>
+        </table>
+      </div> 
 
-
-    
+      
     <!-- Popper & Bootstrap JS-->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
