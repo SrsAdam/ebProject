@@ -15,18 +15,24 @@ $v_SZLASZAM=$_POST['SZLASZAM'];
 $v_WEBLINK = $_POST['WEBLINK'];
 $v_MEGYE = $_POST['MEGYE'];
 
-if ($v_PASSWD !=$v_PASSWD2 )
-{
-    
-    die("A két jelszó nem egyezik!");
-    
+$lekerdezes="SELECT USERNAME FROM regisztracio WHERE USERNAME='$v_USERNAME'";
+$query = mysqli_query($conn, $lekerdezes);
+$row_cnt= mysqli_num_rows($query);
+// ellenőrzéshez: print ($row_cnt);
+if ($row_cnt > 0) {
+    die("Ez a felhasználónév már létezik!");
 }
+
+// két jelszó egyezőség ellenőrzése
+if ($v_PASSWD !=$v_PASSWD2 ){
+        die("A két jelszó nem egyezik!");
+    }
 else
 {
 if ( isset($v_NAME) && isset($v_USERNAME) && isset($v_EMAIL) && isset($v_PASSWD) && isset($v_ADOSZAM) && isset($v_SZLASZAM) && isset($v_WEBLINK) && isset($v_MEGYE))
  
 // ellenőrzéshez: print ($v_PASSWD);
-
+// jelszó titkosítás
 $v_PASSWD = md5($v_PASSWD);
 
  $stmt = mysqli_prepare($conn,"INSERT INTO regisztracio(NAME, USERNAME, EMAIL, PASSWD, ADOSZAM, SZLASZAM, WEBLINK,MEGYE) VALUES ( ?, ?, ?, ?, ?,?,?,?)");
