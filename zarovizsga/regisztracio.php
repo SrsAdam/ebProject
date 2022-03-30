@@ -45,11 +45,12 @@
         </div>
 
         <div class="login">
-            <form>
+            <form method="POST" action="login.php" accept-charset="utf-8">
                 <label for="chk" aria-hidden="true">Bejelentkezés</label>
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Jelszó" required="">
-                <button>Belépés</button>
+                <input type="text" name="USERNAME" placeholder="user" required="">
+                <input type="password" name="PASSWD" placeholder="PASSWD" required="">
+                
+                <button type='submit'>Belépés</button>
             </form>
         </div>
     </div>
