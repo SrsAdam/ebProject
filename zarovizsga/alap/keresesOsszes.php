@@ -107,12 +107,19 @@ include_once '../include/connect.php';
     <div class="input-group mb-3">
     <table class="table table-striped mx-auto w-50">
                     <thead>
-                        
+                        <th>Kutya neve</th>
                         <th>Kutya kora</th>
                         <th>Kutya neme</th>
                         <th>Kutya mérete</th>
                         <th>Szőrhossz</th>
+                        <th>Kép</th>
+                        <th>Jellemzés</th>
+                        <th>Születési dátum</th>
+                        <th>Menhelyre kerülés dátuma</th>
                         <th>Megye</th>
+                        <th>Menhely neve</th>
+                        <th>Menhely weboldalának címe</th>
+
                     </thead>
                     <tbody>
       
@@ -122,26 +129,42 @@ include_once '../include/connect.php';
       $merete=mysqli_real_escape_string($conn,$_GET['merete']);
       $szore=mysqli_real_escape_string($conn,$_GET['szore']);
       $megye=mysqli_real_escape_string($conn,$_GET['megye']);
-      $lekerdezes="SELECT KOR, NEME,MERET,SZORHOSSZ,MEGYE FROM kutya WHERE  KOR =? && NEME=? && MERET=? &&SZORHOSSZ=? && MEGYE=?";
+      $lekerdezes="SELECT NEV,KOR, NEME,MERET,SZORHOSSZ,MEGYE,KEP,JELLEMZES,SZUL_DATUM,BEKER_DATUM,NAME,WEBLINK FROM kutya WHERE STATUSZ='gazdikereső' && KOR =? && NEME=? && MERET=? &&SZORHOSSZ=? && MEGYE=?";
       $stmt = mysqli_prepare($conn, $lekerdezes);
       mysqli_stmt_bind_param($stmt, "sssss", $kora, $neme,$merete,$szore,$megye) and mysqli_stmt_execute($stmt);
       $eredmeny = mysqli_stmt_get_result($stmt);
       while ($sortomb= mysqli_fetch_assoc($eredmeny)){
           
-          
+          $neve=$sortomb['NEV'];
           $kora=$sortomb['KOR'];
           $neme=$sortomb['NEME'];
           $merete=$sortomb['MERET'];
           $szore=$sortomb['SZORHOSSZ'];
+          $kepek=$sortomb['KEP'];
+          $jellemzes=$sortomb['JELLEMZES'];
+          $szulet=$sortomb['SZUL_DATUM'];
+          $beker=$sortomb['BEKER_DATUM'];
           $megye=$sortomb['MEGYE'];
+          $menhely=$sortomb['NAME'];
+          $web=$sortomb['WEBLINK'];
           echo "
           <tr>
-                
+                <td>$neve</td>
                 <td>$kora</td>
                 <td>$neme</td>
                 <td>$merete</td>
                 <td>$szore</td>
+                <td> 
+                <img src=\"$kepek\">
+                </td>
+                <td>$jellemzes</td>
+                <td>$szulet</td>
+                <td>$beker</td>
                 <td>$megye</td>
+                <td>$menhely</td>
+                <td>                         
+                <link href=\"$web\">                
+                </td>
           </tr>
           ";
       }
