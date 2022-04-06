@@ -48,7 +48,6 @@ namespace EB_asztali
             this.btMent = new System.Windows.Forms.Button();
             this.btTorol = new System.Windows.Forms.Button();
             this.btModos = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labJellemz = new System.Windows.Forms.Label();
             this.cbMeret = new System.Windows.Forms.ComboBox();
             this.cbSzorhossz = new System.Windows.Forms.ComboBox();
@@ -63,11 +62,11 @@ namespace EB_asztali
             this.labMenhelyLink = new System.Windows.Forms.Label();
             this.linkMenhely = new System.Windows.Forms.LinkLabel();
             this.btKilepes = new System.Windows.Forms.Button();
-            this.btKep = new System.Windows.Forms.Button();
             this.labMegye = new System.Windows.Forms.Label();
             this.tbMegye = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btLekerdez = new System.Windows.Forms.Button();
+            this.tbKep = new System.Windows.Forms.TextBox();
+            this.lbKep = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labSorszam
@@ -219,7 +218,7 @@ namespace EB_asztali
             // 
             // btMent
             // 
-            this.btMent.Location = new System.Drawing.Point(1085, 547);
+            this.btMent.Location = new System.Drawing.Point(1085, 559);
             this.btMent.Name = "btMent";
             this.btMent.Size = new System.Drawing.Size(84, 35);
             this.btMent.TabIndex = 23;
@@ -246,14 +245,6 @@ namespace EB_asztali
             this.btModos.Text = "Módosít";
             this.btModos.UseVisualStyleBackColor = true;
             this.btModos.Click += new System.EventHandler(this.btModos_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(631, 405);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(538, 104);
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
             // 
             // labJellemz
             // 
@@ -354,7 +345,7 @@ namespace EB_asztali
             this.dateBeker.RightToLeftLayout = true;
             this.dateBeker.Size = new System.Drawing.Size(200, 26);
             this.dateBeker.TabIndex = 36;
-            this.dateBeker.ValueChanged += new System.EventHandler(this.dateBeker_ValueChanged);
+            
             // 
             // labMenhely
             // 
@@ -406,16 +397,6 @@ namespace EB_asztali
             this.btKilepes.UseVisualStyleBackColor = true;
             this.btKilepes.Click += new System.EventHandler(this.btKilepes_Click);
             // 
-            // btKep
-            // 
-            this.btKep.Location = new System.Drawing.Point(484, 405);
-            this.btKep.Name = "btKep";
-            this.btKep.Size = new System.Drawing.Size(127, 55);
-            this.btKep.TabIndex = 43;
-            this.btKep.Text = "Képek feltöltése";
-            this.btKep.UseVisualStyleBackColor = true;
-            this.btKep.Click += new System.EventHandler(this.btKep_Click);
-            // 
             // labMegye
             // 
             this.labMegye.AutoSize = true;
@@ -434,15 +415,34 @@ namespace EB_asztali
             this.tbMegye.Size = new System.Drawing.Size(196, 26);
             this.tbMegye.TabIndex = 45;
             // 
-            // button1
+            // btLekerdez
             // 
-            this.button1.Location = new System.Drawing.Point(209, 559);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 35);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Lekérdez";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btLekerdez.Location = new System.Drawing.Point(319, 559);
+            this.btLekerdez.Name = "btLekerdez";
+            this.btLekerdez.Size = new System.Drawing.Size(90, 35);
+            this.btLekerdez.TabIndex = 46;
+            this.btLekerdez.Text = "Lekérdez";
+            this.btLekerdez.UseVisualStyleBackColor = true;
+            this.btLekerdez.Click += new System.EventHandler(this.btLekerdez_Click);
+            // 
+            // tbKep
+            // 
+            this.tbKep.Location = new System.Drawing.Point(642, 383);
+            this.tbKep.Multiline = true;
+            this.tbKep.Name = "tbKep";
+            this.tbKep.Size = new System.Drawing.Size(196, 77);
+            this.tbKep.TabIndex = 47;
+            this.tbKep.Text = "max.1 db 100 kb kép elérési útja";
+            // 
+            // lbKep
+            // 
+            this.lbKep.AutoSize = true;
+            this.lbKep.BackColor = System.Drawing.Color.Bisque;
+            this.lbKep.Location = new System.Drawing.Point(484, 383);
+            this.lbKep.Name = "lbKep";
+            this.lbKep.Size = new System.Drawing.Size(80, 20);
+            this.lbKep.TabIndex = 48;
+            this.lbKep.Text = "Kép linkje:";
             // 
             // FormKutyaRegi
             // 
@@ -450,10 +450,11 @@ namespace EB_asztali
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1294, 606);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbKep);
+            this.Controls.Add(this.tbKep);
+            this.Controls.Add(this.btLekerdez);
             this.Controls.Add(this.tbMegye);
             this.Controls.Add(this.labMegye);
-            this.Controls.Add(this.btKep);
             this.Controls.Add(this.btKilepes);
             this.Controls.Add(this.linkMenhely);
             this.Controls.Add(this.labMenhelyLink);
@@ -468,7 +469,6 @@ namespace EB_asztali
             this.Controls.Add(this.cbSzorhossz);
             this.Controls.Add(this.cbMeret);
             this.Controls.Add(this.labJellemz);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btModos);
             this.Controls.Add(this.btTorol);
             this.Controls.Add(this.btMent);
@@ -490,7 +490,6 @@ namespace EB_asztali
             this.Controls.Add(this.labSorszam);
             this.Name = "FormKutyaRegi";
             this.Text = "Kutya adatainak szerkesztése:";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,7 +516,6 @@ namespace EB_asztali
         private System.Windows.Forms.Button btMent;
         private System.Windows.Forms.Button btTorol;
         private System.Windows.Forms.Button btModos;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labJellemz;
         private System.Windows.Forms.ComboBox cbMeret;
         private System.Windows.Forms.ComboBox cbSzorhossz;
@@ -532,10 +530,11 @@ namespace EB_asztali
         private System.Windows.Forms.Label labMenhelyLink;
         private System.Windows.Forms.LinkLabel linkMenhely;
         private System.Windows.Forms.Button btKilepes;
-        private System.Windows.Forms.Button btKep;
         private System.Windows.Forms.Label labMegye;
         private System.Windows.Forms.TextBox tbMegye;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btLekerdez;
+        private System.Windows.Forms.TextBox tbKep;
+        private System.Windows.Forms.Label lbKep;
     }
 }
 

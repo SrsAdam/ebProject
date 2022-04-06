@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace EB_asztali
 {
@@ -23,11 +24,35 @@ namespace EB_asztali
             _openfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
             _openfd.Multiselect = false;
         }
+        public static class Encryptor
+        {
+            public static string MD5Hash(string text)  
+            {
+                MD5 md5 = new MD5CryptoServiceProvider();
+
+                //compute hash from the bytes of text  
+                md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+                //get hash result after compute it  
+                byte[] result = md5.Hash;
+
+                StringBuilder strBuilder = new StringBuilder();
+                for (int i = 0; i < result.Length; i++)
+                {
+                    //change it into 2 hexadecimal digits  
+                    //for each byte  
+                    strBuilder.Append(result[i].ToString("x2"));
+                }
+
+                return strBuilder.ToString();
+            }
+        }
+
 
 
         private void btMent_Click(object sender, EventArgs e)
         {
-            //string kapcsolatString = "datasource = localhost; port = 3306; username= root; database=elso;";
+            
             string parancs = "INSERT INTO kutya (`SORSZAM`,`NEV`,`NEME`,`SZUL_DATUM`,`BEKER_DATUM`,`MERET`,`SZORHOSSZ`,`KOR`,`JELLEMZES`,`KEP`,`STATUSZ`,`USERNAME`,`MEGYE`,`NAME`,`WEBLINK`) VALUES " +
                 "(NULL, @nev, @neme ,@szul,@beker,@meret,@szor,@kor,@jel,@kep,@stat, @user, @megye, @menhely, @link); ";
 
@@ -42,7 +67,7 @@ namespace EB_asztali
             commandDatabase.Parameters.Add("@kor", MySqlDbType.VarChar).Value = cbKor.Text;
             commandDatabase.Parameters.Add("@stat", MySqlDbType.VarChar).Value = cbStatusz.Text;
             commandDatabase.Parameters.Add("@jel", MySqlDbType.VarChar).Value = tbJellemz.Text;
-            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = _openfd.FileName.Replace('\\', '/');
+            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = tbKep.Text;
             commandDatabase.Parameters.Add("@user", MySqlDbType.VarChar).Value = tbUser.Text;
             commandDatabase.Parameters.Add("@megye", MySqlDbType.VarChar).Value = tbMegye.Text;
             commandDatabase.Parameters.Add("@menhely", MySqlDbType.VarChar).Value = tbMenhely.Text;
@@ -55,7 +80,7 @@ namespace EB_asztali
             try
             {
                 //ha sikeres az adatbevitel és zárja a kapcsolatot, akkor törli a t.boxok tartalmát, addig modosítható
-                // _openfd.FileName = null ez biztosítja, hogy ha nem tölt fel fotót, oda nem kerül be a korábbi elérési út
+               
                 adatbKapcsolat.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 MessageBox.Show("Sikeres adatbevitel!");
@@ -68,9 +93,9 @@ namespace EB_asztali
                 cbSzorhossz.Text = null;
                 cbKor.Text = null;
                 tbJellemz.Text = null;
-                pictureBox1.Image = null;
                 cbStatusz.Text = null;
-                _openfd.FileName = null;
+
+
             }
             catch (Exception ex)
             {
@@ -86,13 +111,17 @@ namespace EB_asztali
         private void btBejelentkez_Click(object sender, EventArgs e)
         {
             int i = 0;
-            //string kapcsolatString = "datasource = localhost; port = 3306; username= root; database=elso;";
+            
             MySqlConnection adatbKapcsolat = new MySqlConnection(_connectionString);
             adatbKapcsolat.Open();
             MySqlCommand cmd = adatbKapcsolat.CreateCommand();
             MySqlCommand commandDatabase = new MySqlCommand(cmd.CommandText, adatbKapcsolat);
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText= "SELECT  * FROM `regisztracio` WHERE USERNAME = '" + tbUser.Text + "' AND PASSWORD = '" + tbJelszo.Text + "'";
+            cmd.CommandText = "SELECT  * FROM `regisztracio` WHERE USERNAME = @useruser AND PASSWD = @passpass";
+            cmd.Parameters.Add("@useruser", MySqlDbType.VarChar).Value = tbUser.Text;
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(cmd.CommandText));
+            cmd.Parameters.Add("@passpass", MySqlDbType.VarChar).Value = Encryptor.MD5Hash(tbJelszo.Text);
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -139,32 +168,22 @@ namespace EB_asztali
             Application.Exit();
         }
 
-        private void btKep_Click(object sender, EventArgs e)
-        {
-            if (_openfd.ShowDialog() == DialogResult.OK)
-            {
-                var fi = new FileInfo(_openfd.FileName);
-                if (fi.Length > 100240)
-                {
-                    MessageBox.Show("A kép mérete max 100 KB lehet!");
-                }
-                else
-                {
-                    pictureBox1.Image = new Bitmap(_openfd.FileName);
-                }
-            } // c:\user\melinde\kep\kutya1.jpg;c:\user\melinde\kep\kutya3.jpg;c:\user\melinde\kep\kutya5.jpg
-        }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btLekerdez_Click(object sender, EventArgs e)
         {
             int i = 0;
-            //string kapcsolatString = "datasource = localhost; port = 3306; username= root; database=elso;";
+           
             MySqlConnection adatbKapcsolat = new MySqlConnection(_connectionString);
             adatbKapcsolat.Open();
             MySqlCommand cmd = adatbKapcsolat.CreateCommand();
             MySqlCommand commandDatabase = new MySqlCommand(cmd.CommandText, adatbKapcsolat);
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT  * FROM `regisztracio` WHERE USERNAME = '" + tbUser.Text + "' AND PASSWORD = '" + tbJelszo.Text + "'";
+            cmd.CommandText = "SELECT  * FROM `regisztracio` WHERE USERNAME = @useruser AND PASSWD = @passpass";
+            cmd.Parameters.Add("@useruser", MySqlDbType.VarChar).Value = tbUser.Text;
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(cmd.CommandText));
+            cmd.Parameters.Add("@passpass", MySqlDbType.VarChar).Value = Encryptor.MD5Hash(tbJelszo.Text);
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -196,6 +215,7 @@ namespace EB_asztali
                         cbMeret.Text = dr["MERET"].ToString();
                         cbSzorhossz.Text = dr["SZORHOSSZ"].ToString();
                         cbKor.Text = dr["KOR"].ToString();
+                        tbKep.Text = dr["KEP"].ToString();
                         tbJellemz.Text = dr["JELLEMZES"].ToString();
                         cbStatusz.Text = dr["STATUSZ"].ToString(); 
                     }
@@ -231,7 +251,7 @@ namespace EB_asztali
             commandDatabase.Parameters.Add("@kor", MySqlDbType.VarChar).Value = cbKor.Text;
             commandDatabase.Parameters.Add("@stat", MySqlDbType.VarChar).Value = cbStatusz.Text;
             commandDatabase.Parameters.Add("@jel", MySqlDbType.VarChar).Value = tbJellemz.Text;
-            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = _openfd.FileName;
+            commandDatabase.Parameters.Add("@kep", MySqlDbType.VarChar).Value = tbKep.Text;
 
             try
             {
@@ -247,9 +267,9 @@ namespace EB_asztali
                 cbSzorhossz.Text = null;
                 cbKor.Text = null;
                 tbJellemz.Text = null;
-                pictureBox1.Image = null;
+                tbKep.Text = null;
                 cbStatusz.Text = null;
-                _openfd.FileName = null;
+
             }
             catch (Exception ex)
             {
@@ -280,9 +300,10 @@ namespace EB_asztali
                 cbSzorhossz.Text = null;
                 cbKor.Text = null;
                 tbJellemz.Text = null;
-                pictureBox1.Image = null;
+                tbKep.Text = null;
                 cbStatusz.Text = null;
-                _openfd.FileName = null;
+
+                
             }
             catch (Exception ex)
             {
