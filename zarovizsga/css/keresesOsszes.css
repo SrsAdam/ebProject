@@ -1,0 +1,18 @@
+.card{
+    border:solid 1px violet;
+}
+
+.card-body{
+    border:solid 1px red;
+}
+
+.card-text{
+    border:solid 1px blue;
+}
+
+.talalat{
+    background-color: rgb(230, 225, 225);
+    width: 80%;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+}
