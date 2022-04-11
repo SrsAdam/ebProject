@@ -4,6 +4,7 @@ body{
     background-color: whitesmoke;
 }
 
+
 /* Navbar */
 
 .navbar{   
@@ -11,7 +12,7 @@ body{
     font-weight: 500;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
     position: fixed;   
 }
 
@@ -52,7 +53,7 @@ body{
 
 .sliderImg{
     height: 350px;
-    background-size: cover; 
+    background-size: cover;
     z-index: -1;
     opacity: 70%;
 }
@@ -72,26 +73,5 @@ body{
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
-    opacity: 82%;
-}
-
-/*Menhely infók*/
-
-.menhelyInfok{
-    text-align: center;
-    margin: auto;   
-    margin-top: 30px;
-    margin-bottom: 10px;
-    width: 80%;
-}
-
-.table{
-    background-color: rgba(210, 210, 210, 0.7);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tablaHead{
-    background-color:rgba(170, 170, 170, 0.6);
+    opacity: 82;
 }

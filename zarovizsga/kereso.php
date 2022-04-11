@@ -22,37 +22,36 @@ include_once 'include/connect.php';
 
     <!-- Navbar -->
 
-<header>
-  <div class="box"></div>
-<nav class="navbar navbar-expand-sm navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="menu.html">wEB</a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="menu.html">Menü</a>
-          <a class="nav-link" href="kereso.php">Kereső</a>
-          <a class="nav-link" href="menhelyInfo.php">Menhely információ</a>
+    <div class="box"></div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="menu.html">wEB</a>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="menu.html">Menü</a>
+              <a class="nav-link" href="kereso.html">Kereső</a>
+              <a class="nav-link" href="menhelyInfo.html">Menhely információ</a>
+            </div>
+            
+            <a class="ms-auto nav-register" href="./regisztracio.html">         
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+            </a>
         </div>
-        
-        <a class="ms-auto nav-register" href="./regisztracio.php">         
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-          </svg>
-        </a>
-    </div>
-  </nav>
-</header>
+      </nav>
+    </header>
     
     
       <!-- Slideshow -->
     
     <section>
-      <div id="carouselExampleIndicators" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -105,16 +104,12 @@ include_once 'include/connect.php';
 <div class="kereso">
   <div>
     <h1>Keresés</h1>
-
-    <div class="input-group mb-3 keresoMotor">   
-
-      <form class="col-12" action="include/inc_keresesOsszes.php" method="POST">
-
-      <div class="kereseoKerdes">
-          <label class="col-12" for="k_kor">Milyen korú kutya érdekli?</label>
-      </div>
-          <select name="k_kor" class ="form-control" class="form-select" id="inputGroupSelect01" >
-        
+    <div class="input-group mb-3">
+      
+      
+      <form action="include/inc_keresesOsszes.php" method="POST">
+      <label class="input-group-text" for="k_kor">Milyen korú kutya érdekli?</label>
+      <select name="k_kor" class ="form-control" class="form-select" id="inputGroupSelect01" >
         <?php
         $lekerdezes = mysqli_query($conn,"SELECT DISTINCT KOR FROM kutya");
         while ($sortomb=mysqli_fetch_assoc($lekerdezes))
@@ -122,29 +117,23 @@ include_once 'include/connect.php';
           $kutyakora=$sortomb['KOR'];
           echo " <option value='$kutyakora'>$kutyakora</option> ";             
         }
-        ?>       
+        ?>
       </select>
-
-      <div class="kereseoKerdes">
-          <label class="col-12" for="k_nem">Milyen nemű kutya érdekli?</label>
-      </div>
-          <select name="k_nem" class="form-control"class="form-select" id="inputGroupSelect01" >       
-       
-       <?php
+      <label class="input-group-text" for="k_nem">Milyen nemű kutya érdekli?</label>
+      <select name="k_nem" class="form-control"class="form-select" id="inputGroupSelect01" >
+        <?php
         $lekerdezes2 = mysqli_query($conn,"SELECT DISTINCT NEME FROM kutya");
         while ($sortomb = mysqli_fetch_assoc($lekerdezes2))
         {
           $kutyaneme=$sortomb['NEME'];
           echo "<option value='$kutyaneme'>$kutyaneme</option>";
         }
+
         ?>
       </select>
       
-      <div class="kereseoKerdes">
-          <label class="col-12" for="k_meret">Milyen méretű kutya érdekli?</label>
-      </div>
-          <select name="k_meret" class="form-control"class="form-select" id="inputGroupSelect01" >
-        
+      <label class="input-group-text" for="k_meret">Milyen méretű kutya érdekli?</label>
+      <select name="k_meret" class="form-control"class="form-select" id="inputGroupSelect01" >
         <?php
         $lekerdezes3 = mysqli_query($conn,"SELECT DISTINCT MERET FROM kutya");
         while ($sortomb = mysqli_fetch_assoc($lekerdezes3))
@@ -156,11 +145,8 @@ include_once 'include/connect.php';
         ?>
       </select>
       
-      <div class="kereseoKerdes">
-          <label class="col-12" for="k_szor">Milyen szőrhosszúságú kutya érdekli?</label>
-      </div>
-          <select name="k_szor" class="form-control"class="form-select" id="inputGroupSelect01" >
-        
+      <label class="input-group-text" for="k_szor">Milyen szőrhosszúságú kutya érdekli?</label>
+      <select name="k_szor" class="form-control"class="form-select" id="inputGroupSelect01" >
         <?php
         $lekerdezes4 = mysqli_query($conn,"SELECT DISTINCT SZORHOSSZ FROM kutya");
         while ($sortomb = mysqli_fetch_assoc($lekerdezes4))
@@ -171,12 +157,8 @@ include_once 'include/connect.php';
 
         ?>
       </select>
-     
-      <div class="kereseoKerdes">
-          <label class="col-12" for="k_megye">Melyik megyében található menhely érdekli?</label>   
-      </div>      
-          <select name="k_megye" class="form-control"class="form-select" id="inputGroupSelect01" >
-        
+      <label class="input-group-text" for="k_megye">Melyik megyében található menhely érdekli?</label>
+      <select name="k_megye" class="form-control"class="form-select" id="inputGroupSelect01" >
         <?php
         $lekerdezes5 = mysqli_query($conn,"SELECT DISTINCT MEGYE FROM kutya");
         while ($sortomb = mysqli_fetch_assoc($lekerdezes5))
@@ -191,6 +173,7 @@ include_once 'include/connect.php';
     </div>
     
     
+
     <!-- Keresés gomb -->
 
     <div>

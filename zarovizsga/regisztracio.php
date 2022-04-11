@@ -33,8 +33,8 @@
 
                 <p class="menh" >Amennyiben Ön menhelyként regisztrál, kérjük töltse ki az alábbiakat is:</p>
 
-                    <!-- <input type="number" name="ADOSZAM" placeholder= "Adószám"/>               
-                    <input type="tel" name="SZLASZAM" placeholder= "Számlaszám"/> -->          
+                    <input type="number" name="ADOSZAM" placeholder= "Adószám"/>               
+                    <input type="tel" name="SZLASZAM" placeholder= "Számlaszám"/>                 
                     <input type="text" name="WEBLINK" placeholder= "Weboldal" />              
                     <input type="text" name="MEGYE" placeholder= "Megye" />
 
