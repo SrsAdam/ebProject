@@ -12,7 +12,7 @@ body{
     font-weight: 500;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     position: fixed;   
 }
 
@@ -87,6 +87,7 @@ body{
     margin-left: 120px;
     box-shadow: 8px 6px 5px rgb(122, 122, 122);
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .menu3{
@@ -97,6 +98,7 @@ body{
     margin-left: 120px;
     box-shadow: 8px 6px 5px rgb(122, 122, 122);
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .menu2{
@@ -107,6 +109,7 @@ body{
     margin-right: 120px;
     box-shadow: 8px 6px 5px rgb(122, 122, 122);
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .menu4{
@@ -117,10 +120,11 @@ body{
     margin-right: 120px;
     box-shadow: 8px 6px 5px rgb(122, 122, 122);
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .menu-img{
-    border-radius: 250px;
+    padding: 10px;
 }
 
 
@@ -135,5 +139,4 @@ body{
     float: left;
     text-align: center;
     padding: 10px;
-
 }
