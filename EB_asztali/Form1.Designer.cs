@@ -232,7 +232,7 @@ namespace EB_asztali
             this.btTorol.Name = "btTorol";
             this.btTorol.Size = new System.Drawing.Size(93, 35);
             this.btTorol.TabIndex = 24;
-            this.btTorol.Text = "Töröl:";
+            this.btTorol.Text = "Töröl";
             this.btTorol.UseVisualStyleBackColor = true;
             this.btTorol.Click += new System.EventHandler(this.btTorol_Click);
             // 
@@ -345,7 +345,6 @@ namespace EB_asztali
             this.dateBeker.RightToLeftLayout = true;
             this.dateBeker.Size = new System.Drawing.Size(200, 26);
             this.dateBeker.TabIndex = 36;
-            
             // 
             // labMenhely
             // 
@@ -432,7 +431,7 @@ namespace EB_asztali
             this.tbKep.Name = "tbKep";
             this.tbKep.Size = new System.Drawing.Size(196, 77);
             this.tbKep.TabIndex = 47;
-            this.tbKep.Text = "max.1 db 100 kb kép elérési útja";
+            this.tbKep.Text = "max.1 db 1000 kB kép elérési útja";
             // 
             // lbKep
             // 
