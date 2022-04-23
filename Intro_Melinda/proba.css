@@ -9,7 +9,7 @@ body {
 }
 
 img {
-    opacity: 0.7;
+    opacity: 1;
 }
 .hatter_2 {
     background-image: url("hatter.jpg");
@@ -18,7 +18,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: panKepBe 30s ease-out 0s infinite alternate forwards; /* Egy 'panoráma' effektet állítottam be, ez fog lefutni 25 másodperc alatt, csúsztatott ki- és belépéssel, késleltetés nélkük, 1x lefuttatva*/
+    animation: panKepBe 30s linear 0s  alternate forwards; /* Egy 'panoráma' effektet állítottam be, ez fog lefutni 25 másodperc alatt, csúsztatott ki- és belépéssel, késleltetés nélkük, 1x lefuttatva*/
 }
 
 @keyframes panKepBe {
