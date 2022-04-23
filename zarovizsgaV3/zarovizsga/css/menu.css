@@ -1,0 +1,146 @@
+/* HTML */
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/* Navbar */
+
+.navbar{   
+    background-color: rgba(230, 225, 225, 0.7);
+    font-weight: 500;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    position: fixed;   
+}
+
+.nav-info{
+    color: black;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.nav-info:hover{
+    color:lightslategray
+}
+
+.nav-register{
+    color: black;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-register:hover{
+    color:lightslategray
+}
+
+
+/* Slideshow */
+
+.carousel-item{
+    background-color: black;
+    color: white; 
+    position: relative;      
+}
+
+.carousel{
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 65px; 
+}
+
+.sliderImg{
+    height: 350px;
+    background-size: cover; 
+    z-index: -1;
+    opacity: 70%;
+}
+
+.container{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 50px;
+    padding-bottom: 50px;   
+    width: 600px;
+    z-index: 1;
+}
+
+.sliderGomb{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 82%;
+}
+
+
+/* Menüpontok */
+
+.menu1{
+    background-color: rgb(230, 225, 225);
+    width: 80%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 120px;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.menu3{
+    background-color: rgb(230, 225, 225);
+    width: 80%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 120px;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.menu2{
+    background-color: rgb(230, 225, 225);
+    width: 80%;
+    float: right;
+    margin-top: 50px;
+    margin-right: 120px;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.menu4{
+    background-color: rgb(230, 225, 225);
+    width: 80%;
+    float: right;
+    margin-top: 50px;
+    margin-right: 120px;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.menu-img{
+    padding: 10px; 
+    max-height: 225px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*lábjegyzet*/
+
+.labjegyzet{
+    background-color: rgb(230, 225, 225);
+    width: 100%;
+    height: 150px;
+    margin-top: 50px;
+    border-top: solid 1px rgb(165, 165, 165);
+    float: left;
+    text-align: center;
+    padding: 10px;
+}

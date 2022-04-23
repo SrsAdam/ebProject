@@ -1,0 +1,49 @@
+.card{
+    border:solid 1px violet;
+}
+
+.card-body{
+    border:solid 1px red;
+}
+
+.card-text{
+    border:solid 1px blue;
+}
+
+/* HTML */
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/* Navbar */
+
+.navbar{   
+    background-color: rgba(230, 225, 225, 0.7);
+    font-weight: 500;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    position: fixed;   
+}
+
+.nav-info{
+    color: black;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.nav-info:hover{
+    color:lightslategray
+}
+
+.nav-register{
+    color: black;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-register:hover{
+    color:lightslategray
+}
