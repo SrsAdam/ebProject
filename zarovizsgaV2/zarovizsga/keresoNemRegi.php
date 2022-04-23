@@ -33,9 +33,9 @@ include_once 'include/connect.php';
     
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="menu.html">Menü</a>
-              <a class="nav-link" href="kereso.php">Kereső</a>
-              <a class="nav-link" href="menhelyInfo.php">Menhely információ</a>
+              <a class="nav-link" aria-current="page" href="menuNemRegi.html">Menü</a>
+              <a class="nav-link" href="keresoNemRegi.php">Kereső</a>
+              <a class="nav-link" href="menhelyInfoNemRegi.php">Menhely információ</a>
             </div>
             
             <a class="ms-auto nav-register" href="./regisztracio.html">         
