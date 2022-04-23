@@ -1,0 +1,59 @@
+.outer{
+    background-color: rgb(230, 225, 225);
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+    width: 80%;
+    float: left;
+    
+}
+
+.inner{
+    border:solid 1px blue;
+    height: 200px;
+    float: left;
+    
+}
+
+.inner2nd{
+    border:solid 1px green;
+    height: 200px;
+    float: right;
+}
+
+/* HTML */
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/* Navbar */
+
+.navbar{   
+    background-color: rgba(230, 225, 225, 0.7);
+    font-weight: 500;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    position: fixed;   
+}
+
+.nav-info{
+    color: black;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.nav-info:hover{
+    color:lightslategray
+}
+
+.nav-register{
+    color: black;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-register:hover{
+    color:lightslategray
+}
