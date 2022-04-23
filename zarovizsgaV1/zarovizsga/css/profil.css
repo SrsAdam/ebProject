@@ -1,0 +1,66 @@
+/* HTML */
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/* Navbar */
+
+.navbar{   
+    background-color: rgba(230, 225, 225, 0.7);
+    font-weight: 500;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    position: fixed;   
+}
+
+.nav-info{
+    color: black;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.nav-info:hover{
+    color:lightslategray
+}
+
+.nav-register{
+    color: black;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-register:hover{
+    color:lightslategray
+}
+
+h1{
+    margin-top: 50px;
+}
+
+/* Mentett kutyák*/
+
+.mentettKutya{
+    border-radius: 10px;
+    background-color: rgb(222, 222, 222);
+    margin-top: 50px;
+    box-shadow: 8px 6px 5px rgb(212, 212, 212);
+    margin-bottom: 20px;    
+}
+
+.mentettRekord{
+    overflow: scroll;
+    max-height: 650px;
+}
+
+.card{
+    background-color: rgb(230, 225, 225);
+    box-shadow: 6px 4px 3px rgb(122, 122, 122);
+    margin: 10px;
+}
+
+h2{
+    padding: 10px;
+}
