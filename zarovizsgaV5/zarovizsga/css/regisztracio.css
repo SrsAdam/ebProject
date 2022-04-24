@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-image: url(../img/regisztracio.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom left;
+    background-color: rgb(228, 228, 228);
+}
+.main{
+    width: 350px;
+    height: 700px;
+    background: red;
+    overflow: hidden;
+    background: rgba(41, 41, 41, 0.3);
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+}
+#chk{
+    display: none;
+}
+
+
+.signup{
+    position: relative;
+    width:100%;
+    height: 100%;
+}
+
+
+label{
+    color: #fff;
+    font-size: 42px;
+    justify-content: center;;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+
+input{
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+button{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: rgb(60, 60, 255);
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+
+button:hover{
+    background: rgb(75, 75, 177);
+}
+
+
+.login{
+    height: 460px;
+    background: rgba(238, 238, 238, 0.9);
+    border-radius: 5px;
+    transform: translateY(-192px);
+    transition: .8s ease-in-out;
+}
+
+
+.login label{
+    color: black;
+    transform: scale(.6);
+}
+
+
+#chk:checked ~ .login{
+    transform: translateY(-500px);
+}
+
+
+#chk:checked ~ .login label{
+    transform: scale(1);    
+}
+
+
+#chk:checked ~ .signup label{
+    transform: scale(.6);
+}
+
+
+.menh {
+    font-size: 10px;
+    text-align: center;
+}
+
+.kutyaKep{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
