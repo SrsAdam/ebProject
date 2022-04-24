@@ -58,14 +58,44 @@ include_once 'include/connect.php';
       </nav>
     </header>
     
-   
+           
+    <?php
+              if(isset ($_POST['m_submit'])){
+                
+                $user_id = $_SESSION['user_id'];                
+
+         $select = mysqli_query($conn, "SELECT * FROM `regisztracio` WHERE SORSZAM = '$user_id'") or die('query failed');
+         if(mysqli_num_rows($select) > 0){
+            $result = mysqli_fetch_assoc($select);
+            //echo ($_SESSION['user_id'] .  $nev=$result['USERNAME']);
+         }
+                $nev=$result['USERNAME'];
+                $v_SOR = $_POST['KUTYA_SORSZ'];
+                $query="SELECT KUTYA_SORSZ FROM mentett WHERE KUTYA_SORSZ='$v_SOR' ";
+                $result= mysqli_query($conn, $query);
+                $num=mysqli_num_rows($result);
+                if ($num >0){
+
+                mysqli_query($conn,"DELETE FROM mentett WHERE KUTYA_SORSZ='$v_SOR' AND USERNAME='$nev'; ");
+              }
+            else echo ('  Sikeres törlés');
+          }            
+          ?>
 
     <!-- Mentett kutyák -->
           
     <div class="col-md-12 bg-torzs">
         <h2>Kedvencekhez mentett kutyák</h2>
         <table class="table table-striped">
-        
+        <div>
+      <form action=""method="POST" accept-charset="utf-8">
+      <label  for="chk" aria-hidden="true">Írja be a törölni kívánt kutya sorszámát</label>
+      <input type="number" name="KUTYA_SORSZ" placeholder="Kutya sorszáma" >
+      <button type="submit" name="m_submit" class="btn btn-success">Kedvencekből törlöm</button>
+         
+       <div class="row">
+      </form>
+      </div>
           <tbody>
             <?php
             $user_id = $_SESSION['user_id'];
