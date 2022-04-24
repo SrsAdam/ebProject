@@ -1,7 +1,7 @@
 <?php
 
-$conn=mysqli_connect("localhost","root","","elso")or die("Ssatlakozási hiba!");
-echo ("csatlakozás rendben");
+$conn=mysqli_connect("localhost","root","","elso")or die("Csatlakozási hiba!");
+echo ("Csatlakozás rendben");
 session_start();
 
 if(!isset($_POST['l_submit'])){

@@ -67,11 +67,9 @@ include_once 'include/connect.php';
             $select = mysqli_query($conn, "SELECT * FROM `regisztracio` WHERE SORSZAM = '$user_id'") or die('query failed');
          if(mysqli_num_rows($select) > 0){
             $result = mysqli_fetch_assoc($select);
-            echo ($_SESSION['user_id'] .  $nev=$result['USERNAME']);
+            //echo ($_SESSION['user_id'] .  $nev=$result['USERNAME']);
          }
                 $nev=$result['USERNAME'];
-
-
 
             $lekerdezes =  mysqli_query($conn, "SELECT kutya.SORSZAM,NEV,KOR, NEME,MERET,SZORHOSSZ,MEGYE,KEP,JELLEMZES,SZUL_DATUM,BEKER_DATUM,NAME,WEBLINK FROM mentett LEFT JOIN kutya ON mentett.kutya_sorsz = kutya.sorszam WHERE mentett.USERNAME= '$nev'; ");
             //$eredmeny = mysqli_stmt_get_result($lekerdezes);
