@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="proba.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="proba.js"></script>
+
+</head>
+<body>
+
+
+    <div class="hatter_2">
+        <div class="fejezetek">
+            <span class="szalag"> <br></span>
+                        
+            <div class="kutyus" id="kutyi">
+                <div class="torso">
+                  <div class="fur">
+                    <div class="spot"></div>
+                  </div>
+                  <div class="neck">
+                    <div class="fur"></div>
+                    <div class="head">
+                      <div class="fur">
+                        <div class="snout"></div>          
+                      </div>
+                      <div class="ears">
+                        <div class="ear">
+                          <div class="fur"></div>
+                        </div>
+                        <div class="ear">
+                          <div class="fur"></div>
+                        </div>
+                      </div>
+                      <div class="eye"></div>
+                    </div>
+                    <div class="collar">
+                      
+                    </div>
+                  </div>
+                  <div class="legs">
+                    <div class="leg">
+                      <div class="fur"></div>
+                      <div class="leg-inner">
+                        <div class="fur"></div>
+                      </div>
+                    </div>
+                    <div class="leg">
+                      <div class="fur"></div>
+                      <div class="leg-inner">
+                        <div class="fur"></div>
+                      </div>
+                    </div>
+                    <div class="leg">
+                      <div class="fur"></div>
+                      <div class="leg-inner">
+                        <div class="fur"></div>
+                      </div>
+                    </div>
+                    <div class="leg">
+                      <div class="fur"></div>
+                      <div class="leg-inner">
+                        <div class="fur"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tail">
+                    <div class="tail">
+                      <div class="tail">
+                        <div class="tail -end">
+                          <div class="tail">
+                            <div class="tail">
+                              <div class="tail">
+                                <div class="tail"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+        <div class="container-fluid"><a href="../menuNemRegi.html"><span id="alsoSzoveg" style="cursor: pointer;">tovább a wEBoldalra</span></a></div>
+        <img src="./fairy_forest.png" alt="" width="1500" height="1600">
+        </div>
+      </div>
+
+      <script>
+       
+        
+        document.getElementById("alsoSzoveg").onclick = function() {kihuzni()};
+        
+        function kihuzni() 
+        {document.getElementById("kutyi").classList.add("kutyusKihuzas");
+        //setTimeout(() => {window.open("https://www.w3schools.com")}, 5000);
+        setTimeout(() => {window.open('menuNemRegi.html','_self')}, 5000);
+        }           
+
+      </script>
+
+</body>
+</html>

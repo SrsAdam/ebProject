@@ -1,0 +1,106 @@
+/* HTML */
+
+body {
+    background-color: whitesmoke;
+    background-image: url(../img/keresoKep.png) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom right;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: rgba(230, 225, 225, 0.7);
+    font-weight: 500;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+}
+
+.nav-info {
+    color: black;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.nav-info:hover {
+    color: lightslategray;
+}
+
+.nav-register {
+    color: black;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-register:hover {
+    color: lightslategray;
+}
+
+/* Kereső motor */
+
+.kereso {
+    background-color: rgb(222, 222, 222);
+    border-radius: 10px;
+    padding: 10px;
+    height: 80%;
+    width: 45%;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    box-shadow: 8px 6px 5px rgb(212, 212, 212);
+}
+
+.keresogomb {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 365px;
+}
+
+.keresoMotor{
+    margin: auto;
+}
+
+label{
+    margin-top: 10px;
+    text-align: left;    
+}
+
+.kereseoKerdes{
+    padding: 1px;
+    padding-left: 5px;
+}
+
+/* Rekordok */
+
+.rekord {
+    background-color: rgb(230, 225, 225);
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 8px 6px 5px rgb(122, 122, 122);
+    border-radius: 5px;
+}
+
+.rekord-img {
+    padding: 15px;
+}
+
+form{
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 30px;
+}
+
+h1{
+    text-align: center;
+}
+
+.udv{
+    margin-top: 100px;
+    text-align: center;
+}
