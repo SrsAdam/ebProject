@@ -50,10 +50,10 @@ include_once 'include/connect.php';
     
     <!-- Kereső motor -->
 
-<div class="container-fluid kereso">  
+<div class="container-fluid kereso col-8">  
       <div class="bg-torzs">
-        <h3>Örökbefogadható kutyák</h3>
-        <table class="table table-striped">
+        <h2>Örökbefogadható kutyák</h2>
+        <table class="table table-striped col-6">
         <thead>
                         <th>Kutya neve</th>
                         <th>Kutya kora</th>

@@ -42,7 +42,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     height: 80%;
-    width: 90%;
+    width: 80%;
     margin: auto;
     margin-top: 80px;
     margin-bottom: 30px;
@@ -93,3 +93,6 @@ form{
     padding-bottom: 30px;
 }
 
+h2{
+    text-align: center;
+}
