@@ -34,11 +34,23 @@ if ( isset($v_NAME) && isset($v_USERNAME) && isset($v_EMAIL) && isset($v_PASSWD)
 $v_PASSWD = md5($v_PASSWD);
 
  $stmt = mysqli_prepare($conn,"INSERT INTO regisztracio(NAME, USERNAME, EMAIL, PASSWD,   WEBLINK,MEGYE) VALUES ( ?, ?, ?,?,?,?)");
- mysqli_stmt_bind_param($stmt,"ssssiiss",$v_NAME, $v_USERNAME, $v_EMAIL, $v_PASSWD,$v_WEBLINK,$v_MEGYE);
+ mysqli_stmt_bind_param($stmt,"ssssss",$v_NAME, $v_USERNAME, $v_EMAIL, $v_PASSWD,$v_WEBLINK,$v_MEGYE);
  
- $sikeres = mysqli_stmt_execute($stmt);
-// ellenőrzéshez: print ($v_PASSWD);
-print("Sikeres regisztráció!");	
-}
+ $sikeres = mysqli_stmt_execute($stmt);}
 
+ $menhely = $v_MEGYE;
+switch($menhely){
+    case "":
+        echo "Ez a felhasználónév nem menhely!";
+        header('location: regisztracio.php');
+        break;
+        default:
+        echo "Ez a felhasználónév  menhely."?> 
+        <a href="telepitoOldal.php" class="btn">Asztali alkalmazás telepítő oldal</a>
+        <?php
+        break;}
+
+ 
+
+ 
 ?>
