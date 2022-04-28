@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Ápr 24. 09:58
+-- Létrehozás ideje: 2022. Ápr 28. 22:06
 -- Kiszolgáló verziója: 10.4.22-MariaDB
 -- PHP verzió: 8.0.15
 
@@ -56,7 +56,7 @@ INSERT INTO `kutya` (`SORSZAM`, `NEV`, `NEME`, `SZUL_DATUM`, `BEKER_DATUM`, `MER
 (4, 'Cézár', 'ivartalanított kan', '2022', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'kölyök', 'Nagyon helyes, játékos, barátságos kiskutya', 'https://i.imgur.com/wvRcyTj.png', 'gazdikereső', 'uromi', 'Pest megye', 'Ürömi Állatotthon', 'https://uromimenhely.hu/'),
 (5, 'Samu', 'ivartalanított kan', '2019', '2022-04-18', 'nagy	 (>30kg)', 'hosszú', 'felnőtt ', 'okosan megtanulta, a pórázon sétát, szeret játszani, szaladni, de temperamentuma kifejezetten ideális', 'https://i.imgur.com/eWm0GI7.png', 'gazdikereső', 'uromi', 'Pest megye', 'Ürömi Állatotthon', 'https://uromimenhely.hu/'),
 (6, 'Fanni', 'ivartalanított szuka', '2018', '2022-04-18', 'nagy	 (>30kg)', 'hosszú', 'felnőtt ', 'A férfiak felé hamarabb megnyílik. Nőktől kicsit jobban tart.A jutifalatot kennelrácson keresztül nagyon óvatosan, finoman, míg közvetlen találkozásnál picit hevesebben veszi el.', 'https://i.imgur.com/WVZ2g6T.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
-(7, 'Curti', 'ivartalanított kan', '2019', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'felnőtt ', 'Jó, aktív, rohangálós, labdaimádó – és ezzel kiválóan motiválható, tanítható.Tényleg lesi minden szavad, mozdulatod.', 'https://i.imgur.com/6CuKfbT.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
+(7, 'Curti', 'ivartalanított kan', '2019', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'felnőtt ', 'Jó, aktív, rohangálós, labdaimádó – és ezzel kiválóan motiválható, tanítható.Tényleg lesi minden szavad, mozdulatod.', 'https://i.imgur.com/6CuKfbT.png', 'gazdis', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
 (8, 'Lina', 'ivartalanított szuka', '2017', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'felnőtt ', 'Elsőre kicsit tartózkodó, de hamar el lehet nyerni a bizalmát pár szem jutifalattal és halk kedves szavakkal, nyugodt mozdulatokkal, valamint akkor is, ha egy olyan ember mutatja be neki a számára ismeretlent, akiben már megbízik.', 'https://i.imgur.com/9jks8kH.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
 (9, 'Sib', 'ivartalanított szuka', '2018', '2022-04-18', 'kicsi 	(<15 kg)', 'hosszú', 'felnőtt ', 'Kedves kiskutya, aki a popó masszázst nagyon szereti.', 'https://i.imgur.com/vsjlxdu.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
 (10, 'Dagi', 'ivartalanított szuka', '2017', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'felnőtt ', 'Okosan megtanulta, a pórázon sétát, szeret játszani, szaladni, de temperamentuma kifejezetten ideális', 'https://i.imgur.com/h7QW5km.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
@@ -72,7 +72,7 @@ INSERT INTO `kutya` (`SORSZAM`, `NEV`, `NEME`, `SZUL_DATUM`, `BEKER_DATUM`, `MER
 (20, 'Zebu', 'ivartalanított kan', '2018', '2022-01-04', 'közepes 	(15-30kg)', 'rövid', 'felnőtt ', 'Jól nevelt, okos, barátságos', 'https://i.imgur.com/e2QRgvD.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
 (21, 'Malina', 'ivartalanított szuka', '2022', '2022-01-08', 'kicsi 	(<15 kg)', 'rövid', 'kölyök', 'Kedves, élénk, kiegyenesúlyozott kutya', 'https://i.imgur.com/hrMzffH.png', 'gazdikereső', 'lelenc', 'Pest megye', 'Lelenc Kutyamentő Egyesület', 'https://www.lelenc.hu/'),
 (22, 'Süti', 'ivartalanított kan', '2022', '2022-01-07', 'kicsi 	(<15 kg)', 'hosszú', 'kölyök', 'Nyugodt, nagyon kedves természetű', 'https://i.imgur.com/mWxexQw.png', 'gazdikereső', 'tappancs', 'Csongrád-Csanád megye', 'Tappancs Állatvédő Alapítvány', 'https://www.tappancs.hu/'),
-(23, 'Kesu', 'ivartalanított kan', '2021', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'kölyök', 'Nyugodt, nagyon kedves természetű', 'https://i.imgur.com/pPzSjik.png', 'gazdikereső', 'tappancs', 'Csongrád-Csanád megye', 'Tappancs Állatvédő Alapítvány', 'https://www.tappancs.hu/'),
+(23, 'Kesu', 'ivartalanított kan', '2021', '2022-04-18', 'közepes 	(15-30kg)', 'hosszú', 'kölyök', 'Nyugodt, nagyon kedves természetű', 'https://i.imgur.com/pPzSjik.png', 'gazdis', 'tappancs', 'Csongrád-Csanád megye', 'Tappancs Állatvédő Alapítvány', 'https://www.tappancs.hu/'),
 (24, 'Buksi', 'ivartalanított kan', '2021', '2022-04-18', 'nagy	 (>30kg)', 'közepes', 'kölyök', 'Félénk, ám szelíd', 'https://i.imgur.com/uGIKv4C.png', 'gazdikereső', 'tappancs', 'Csongrád-Csanád megye', 'Tappancs Állatvédő Alapítvány', 'https://www.tappancs.hu/');
 
 -- --------------------------------------------------------
@@ -92,13 +92,14 @@ CREATE TABLE `mentett` (
 --
 
 INSERT INTO `mentett` (`SORSZAM`, `USERNAME`, `KUTYA_SORSZ`) VALUES
-(24, 'albi', 1),
 (25, 'emi', 9),
 (26, 'kati', 8),
 (27, 'kati', 10),
-(30, 'albi', 15),
 (31, 'kati', 13),
-(32, 'albi', 6);
+(40, 'emi', 15),
+(41, 'albi', 21),
+(43, 'albi', 19),
+(44, 'albi', 5);
 
 -- --------------------------------------------------------
 
@@ -144,13 +145,16 @@ ALTER TABLE `kutya`
 -- A tábla indexei `mentett`
 --
 ALTER TABLE `mentett`
-  ADD PRIMARY KEY (`SORSZAM`);
+  ADD PRIMARY KEY (`SORSZAM`),
+  ADD KEY `USERNAME` (`USERNAME`),
+  ADD KEY `KUTYA_SORSZ` (`KUTYA_SORSZ`);
 
 --
 -- A tábla indexei `regisztracio`
 --
 ALTER TABLE `regisztracio`
-  ADD PRIMARY KEY (`SORSZAM`);
+  ADD PRIMARY KEY (`SORSZAM`),
+  ADD KEY `USERNAME` (`USERNAME`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -166,13 +170,24 @@ ALTER TABLE `kutya`
 -- AUTO_INCREMENT a táblához `mentett`
 --
 ALTER TABLE `mentett`
-  MODIFY `SORSZAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `SORSZAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT a táblához `regisztracio`
 --
 ALTER TABLE `regisztracio`
-  MODIFY `SORSZAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `SORSZAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `mentett`
+--
+ALTER TABLE `mentett`
+  ADD CONSTRAINT `mentett_ibfk_1` FOREIGN KEY (`USERNAME`) REFERENCES `regisztracio` (`USERNAME`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mentett_ibfk_2` FOREIGN KEY (`KUTYA_SORSZ`) REFERENCES `kutya` (`SORSZAM`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

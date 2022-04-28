@@ -224,7 +224,7 @@ namespace EB_asztali
                 }
                 else
                 {
-                    MessageBox.Show("nem megfelelő jelszó!");
+                    MessageBox.Show("Nem megfelelő felhasználónév vagy jelszó!");
                 }
                 adatbKapcsolat.Close();
             }
