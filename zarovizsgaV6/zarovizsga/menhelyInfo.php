@@ -84,24 +84,28 @@ if(isset($_GET['logout'])){
     <div class="carousel-inner">
       <div class="carousel-item active">   
         <div class="container">
-          <h1>Írás</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
+          <h1>Regisztráció és bejelentkezés</h1>
+          <p>Oldalunkon rengeteg kutyus várja, hogy végre családra találhasson. Velük már most megismerkedhetsz, de ha vannak konkrét elképzeléseid, érdemes személyre szabni a kereséseidet.
+            
+            Ehhez kérjük, regisztrálj!</p>
         </div>
           <img src="./img/kutyakRepulo.jpg" class="d-block w-100 sliderImg" alt="...">
       </div>
 
       <div class="carousel-item">
         <div class="container">
-          <h1>Írás</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
+          <h1>Találj rá az igazira!</h1>
+          <p>Ha már rendelkezel nálunk profillal, személyre szabottan keresgélhetsz, 
+            ráadásul elmentheted a kedvenceket, hogy könnyebben egymásra találhassatok négylábú barátoddal.</p>
         </div>
         <img src="./img/pankaSelfie.jpg" class="d-block w-100 sliderImg" alt="...">
       </div>
 
       <div class="carousel-item">
         <div class="container">
-          <h1>Írás</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, ullam tenetur ut deserunt hic maxime.</p>
+          <h1>Bemutatkoznak a boldog kutyusok!</h1>
+          <p>Ismerd meg azokat a szerencséseket, akik már családra találtak nálunk, 
+            vagy tudj meg többet a menhelyekről, ahonnan érkeztek!</p>
         </div>
         <img src="./img/BogiNapSiluette.jpg" class="d-block w-100 sliderImg" alt="...">
       </div>
@@ -153,6 +157,39 @@ if(isset($_GET['logout'])){
             ?>
           </tbody>
         </table>
+      </div>
+      <div class="col-12 menhelyInfok" class="container-fluid kereso"">
+        <h3>Boldog, gazdis kutyák</h3>
+        <table class="table table-striped">
+          <thead class="tablaHead">
+            <th>Kutya neve</th>
+            <th>Kutya foto</th>
+            <th>Jellemzés </th>
+          </thead>
+          <tbody>
+            <?php
+            $lekerdezes =  mysqli_query($conn, "SELECT NEV, KEP, JELLEMZES  FROM kutya WHERE STATUSZ ='gazdis'");
+              while ($sortomb = mysqli_fetch_assoc($lekerdezes)) {
+              $nev = $sortomb['NEV'];
+              $kep = $sortomb['KEP'];
+              $jell = $sortomb['JELLEMZES'];
+              echo "
+                    <tr>
+                      <td>$nev</td>
+                      <td >
+                      " ?>
+                      <?php echo"<img src=\"$kep\">" ?>
+                      <?php echo " 
+                      </td>
+                      <td>$jell</td>
+                    </tr>
+                  ";
+              }
+            ?>
+          </tbody>
+        </table>
+      </div> 
+      
 
     <!-- Popper & Bootstrap JS-->
 
