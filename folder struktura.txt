@@ -1,0 +1,17 @@
+Tisztelt Vizsgabizottság!
+
+Az ebProject mappa felépítése és tartalma az alábbi:
+
+Folder neve: zarovizsga_végleges
+Tartalma: ebben van a teljes forráskód és minden dokumentum a vizsgamunka végleges verziójáról
+
+
+ezen belül a további tartalom:
+
+zarovizsga_weboldal 	- ez tartalmazza a weboldal forráskódját
+
+wEBoldal megnyitásához ezt a fájlt kell megnyitni legelőször
+C:\Users\admin\Documents\ebProject\zarovizsga_végleges\zarovizsga_weboldal\introOldal\intro.html
+
+EB_asztali 		- az asztali alkalmazás forráskódja és felhasználói kézikönyve
+telepito 		- az asztali alkalmazás telepítésének fájlja és a felhasználói kézikönyve
